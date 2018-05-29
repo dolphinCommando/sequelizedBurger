@@ -6,13 +6,15 @@ $(document).ready(function() {
     };
     $.ajax('/api/burgers', {
       type: "POST",
-      data: newData
-    }).then(
-      function() {
-        console.log("Added burger " + newData.name);
-        location.reload();
+      data: newData,
+      statusCode: {
+        404: () => {
+          alert('Empty strings are unacceptable')
+        }
       }
-    );
+    }).then(() => {
+      location.reload();
+    });
   });
 
   $('body').on('click', '.eat-burger', function(event) {
@@ -24,7 +26,6 @@ $(document).ready(function() {
       data: newData
     }).then(
       function() {
-        console.log("You have eaten burger #", newData.id);
         location.reload();
       }
     );

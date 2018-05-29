@@ -5,7 +5,11 @@ var router = express.Router();
 var db = require('../models');
 
 router.get('/', (req, res) => {
-  db.burgers.findAll({}).then(data => {
+  db.burgers.findAll({
+    order: [
+      ['burger_name', 'ASC']
+    ] 
+  }).then(data => {
     var hbsObject = {
       burgers: data
     };
@@ -17,8 +21,10 @@ router.post('/api/burgers', (req, res) => {
   db.burgers.create({
     burger_name: req.body.name,
     devoured: false
+  }).catch(err => {
+    res.sendStatus(404).end(); 
   }).then(data => {
-    res.json(data);
+    res.json(data); 
   });
 });
 
