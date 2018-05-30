@@ -1,11 +1,12 @@
 
 body, .container {
   background-color: orange;
+  word-wrap: break-word;
 }
 
 .burger-div {
   background-color: white;
-  width: 60%;
+  width: 80%;
   padding: 10px 5px;
   margin-top: 10px;
   border-style: solid;
@@ -15,17 +16,32 @@ body, .container {
 
 h2 {
   font-family: "Comic Sans MS", cursive, sans-serif;
-  margin-top: 30px;
-  color: red; 
+  color: red;
+  min-width: 350px;
 }
 
 h3 {
   color: red;
 }
 
+header {
+  padding: 30px 0px;
+  text-align: center;
+}
+
+header strong {
+  font-style: italic;
+  color: blue;
+}
+
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+
+
+img {
+  min-width: 250px;
 }
