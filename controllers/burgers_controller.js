@@ -2,10 +2,10 @@ var express = require('express');
 
 var router = express.Router();
 
-var db = require('../models');
+var db = require('../models/burger.js');
 
 router.get('/', (req, res) => {
-  db.burgers.findAll({
+  db.findAll({
     order: [
       ['burger_name', 'ASC']
     ] 
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/api/burgers', (req, res) => {
-  db.burgers.create({
+  db.create({
     burger_name: req.body.name,
     devoured: false
   }).catch(err => {
@@ -29,7 +29,7 @@ router.post('/api/burgers', (req, res) => {
 });
 
 router.put('/api/burgers/:id', (req, res) => {
-  db.burgers.update({
+  db.update({
     devoured: true
   }, {
     where: {
