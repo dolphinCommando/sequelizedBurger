@@ -45,3 +45,9 @@ header strong {
 img {
   min-width: 250px;
 }
+
+#burger-wrong {
+  display: none; 
+  color: red;
+}
+

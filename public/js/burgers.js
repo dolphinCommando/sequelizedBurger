@@ -8,8 +8,13 @@ $(document).ready(function() {
       type: "POST",
       data: newData,
       statusCode: {
-        404: () => {
-          alert('Empty strings are unacceptable')
+        400: () => {
+          $('#burger-wrong').css('display', 'block');
+          $('#burger-name').css('border', '2px solid red');
+        },
+        200: () => {
+          $('#burger-wrong').css('display', 'none');
+          $('#burger-name').css('border', 'none');
         }
       }
     }).then(() => {

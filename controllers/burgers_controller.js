@@ -22,9 +22,9 @@ router.post('/api/burgers', (req, res) => {
     burger_name: req.body.name,
     devoured: false
   }).catch(err => {
-    res.sendStatus(404).end(); 
+    res.status(400).end(); 
   }).then(data => {
-    res.json(data); 
+    res.status(200).json(data); 
   });
 });
 
